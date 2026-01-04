@@ -18,7 +18,6 @@
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 import express from "express"; // ES Modules style
-import { getUser } from "./user.js";
 
 const app = express();
 const PORT = 3000;
@@ -113,6 +112,19 @@ app.post("/logins", validate, (req, res) => {
 		email: email,
 		password: password,
 	});
+});
+
+// A list of users (in-memory array)
+
+const users = [
+	{ id: 1, name: "Alice", email: "alice@example.com" },
+	{ id: 2, name: "Bob", email: "bob@example.com" },
+	{ id: 3, name: "Charlie", email: "charlie@example.com" },
+];
+
+
+app.get("/reads", (req, res) => {
+	res.json(users); // send the users array as JSON
 });
 
 // Where the server listens for how request and port 3000
