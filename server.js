@@ -122,6 +122,14 @@ const users = [
 	{ id: 3, name: "Charlie", email: "charlie@example.com" },
 ];
 
+const p = {
+  "id": 1,
+  "title": "Test note",
+  "content": "Testing ID logic",
+  "createdAt": "..."
+}
+
+
 
 app.get("/reads", (req, res) => {
 	res.json(users); // send the users array as JSON
